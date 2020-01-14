@@ -1,26 +1,37 @@
 \documentclass{resume} % Use the custom resume.cls style
 \usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 
+%\newcommand\gitlablogo{\href{http://gitlab.com/JOHNeMac36}{\includegraphics[height=9pt]{./img/gitlab.png}}\ }
+%\newcommand\githublogo{\href{http://github.com/JOHNeMac36}{\raisebox{0pt}{\includegraphics[height=9pt]{./img/github.png}}\ }}
+%\newcommand\linkedinlogo{\href{http://linkedin.com/in/john-mcavoy-8b888b183}{\raisebox{0pt}{\includegraphics[height=9pt]{./img/linkedin.png}}\ }}
 
-\name{Jonathan E. McAvoy}
+\name{John E. McAvoy}
 
-\address{208 Abbey Lane, Logan Township, NJ 08085}
+\address{208 Abbey Lane, Logan Township, NJ 08085 \\ +18563572550 \\ johnemac36@protonmail.com}
 
-\address{(856) 357-2550 \\ mcavoyj5@students.rowan.edu}
+\address{
+  %  \githublogo \href{http://github.com/JOHNeMac36}{github.com/JOHNeMac36} \\
+  %  \gitlablogo \href{http://gitlab.com/JOHNeMac36}{gitlab.com/JOHNeMac36} \\
+  \href{http://linkedin.com/in/john-mcavoy-8b888b183}{linkedin.com/in/john-mcavoy-8b888b183} \\
+  \href{http://github.com/JOHNeMac36}{github.com/JOHNeMac36} \\
+  \href{http://gitlab.com/JOHNeMac36}{gitlab.com/JOHNeMac36}
+}
 
 \begin{document}
 
-    \begin{rSection}{Education}
+\begin{rSection}{Education}
 
-        {\bf Bachelor of Science, Electrical and Computer Engineering} \hfill
-        {anticipated December 2019}
-        \\
-        Rowan University, Glassboro, NJ  GPA:  3.75 / 4.00, Dean's List
+  {\bf Bachelor of Science, Electrical and Computer Engineering} \hfill
+  {anticipated May 2020}
+  \\
+  Rowan University, Glassboro, NJ  GPA:  3.67/4.00, Dean's List, Rowan Scholars Program
 
-        \end{rSection}
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   TECHNICAL STRENGTHS SECTION
@@ -28,37 +39,38 @@
 
 \begin{rSection}{TECHNICAL SKILLS}
 
-        \begin{tabular}{ @{} >{\bfseries}l @{\hspace{0ex}} l }
-                &
-                %Apache $\vert$
-                Bash $\vert$
-                C $\vert$
-                C++ $\vert$
-                C\# $\vert$
-                HTML $\vert$
-                Java $\vert$
-                JavaScript $\vert$
-                MATLAB $\vert$
-                Nodejs $\vert$
-                PHP $\vert$
-                Python $\vert$
-                %Reactjs $\vert$
-                Rust $\vert$
-                SQL $\vert$
-                Swift
-                %Verilog
-                \\
+  \begin{tabular}{ @{} >{\bfseries}l @{\hspace{0ex}} l }
+    &
+    %Apache $\vert$
+    Bash $\vert$
+    C $\vert$
+    C++ $\vert$
+    C\# $\vert$
+    Docker $\vert$
+    Elm $\vert$
+    HTML $\vert$
+    Java $\vert$
+    JavaScript $\vert$
+    MATLAB $\vert$
+    Node.js $\vert$
+    PHP $\vert$
+    Python $\vert$
+    %Reactjs $\vert$
+    Rust $\vert$
+    SQL $\vert$
+    Swift
+    %Verilog
+    \\
 
-%           Interests&
-            &
-            Software Engineering, Linux Development, PCB Design, and Embedded
-            Systems Engineering
+    %           Interests&
+    &
+    Software Engineering, Product Engineering, Linux Development, Web Development, and Embedded
+    Systems Engineering
+    \\
 
-               \\
+  \end{tabular}
 
-        \end{tabular}
-
-    \end{rSection}
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   WORK EXPERIENCE SECTION
@@ -66,82 +78,105 @@
 
 \begin{rSection}{TECHNICAL PROJECTS}
 
-\begin{rSubsection}{Electrospinner}{September 2018 - Present}{Junior Clinic}{}
-\item A novel image processing method for creating an AR environment using
-  projected light and a camera.
-\item Developed MATLAB, C++, and Android proof of concept applications using the
-  ARSL method.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  \begin{rSubsection}{A-Team Server}{January 2018 - Present}{A-Team, Project Co-Lead}{}
+  \item Linux server running a Rust web server, an
+    Elm front end, and MySQL database in separate Docker containers.
+  \item Hosts web applications for the Rowan Engineering department to track equipment
+    loans, host safety tests, and manage chemical inventories.
+  \item Co-lead full-stack web development team and administered server.
+  \end{rSubsection}
 
-\begin{rSubsection}{Autonomous Quadcopter}{September 2017 - Present}{Rowan RAS}{}
-\item Fully autonomous drone capable of navigating to waypoints, dropping a
-  payload, and detecting targets using image recognition.
-\item Integrates a fight controller, SOC image processing, navigation sensors
-  and a custom power regulation circuit, on a custom designed aluminum frame.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  %  \begin{rSubsection}{3D Printer Heated Filament Enclosure}{October 2019 - Present}{A-Team,
+  %      Electrical Team Lead}{}
+  %  \item Designed a custom heated filament enclosure for humidity sensitive 3D printing filament
+  %  \item Integrates heater, temperature and humidity sensors, microcontroller and
+  %    OLED user interface
+  %  \end{rSubsection}
 
-\begin{rSubsection}{Lab Log Tool}{May 2018 - September 2018}{Harris Cooperation, Project Lead}{}
-\item Web application used by FAA employees to record lab logs, schedule lab times, and generate metrics.
-\item Back-end: Linux server running a Nodejs web server, a Postfix mail server, and MySQL database.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  \begin{rSubsection}{Micromouse}{September 2018 - Present}{Rowan RAS}{}
+  \item Maze solving robot for IEEE Micromouse competition. Won first place at
+    IEEE Region 2 Student Activity Conference 2019.
+  \item Consisted of a custom PCB, STM32F405 microcontroller, time of flight lidar
+    distance sensors, 3D printed chassis, and embedded programming done in Rust.
+  \end{rSubsection}
 
-\begin{rSubsection}{Augmented Reality Using Structured Light (ARSL)}{September 2018 - Present}{Junior Clinic}{}
-\item A novel image processing method for creating an AR environment using
-  projected light and a camera.
-\item Developed MATLAB, C++, and Android proof of concept applications using the
-  ARSL method.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  \begin{rSubsection}{ProfHacks Website}{September 2018 - Present}{Rowan IEEE, Project Lead}{}
+  \item Node.js-based website, designed from scratch, for Rowan IEEE's annual Hackathon.
+  \end{rSubsection}
 
-\begin{rSubsection}{Rowan ECE Resource Center Server}{September 2017 - Present}{A-Team, Project Lead}{}
-\item Linux server running multiple Docker containers, a web server written in
-  Rust, Apache, and MySQL database.
-\item Hosts web applications for tracking employee hours, equipment loans, 3D printer queue, and chemical inventories.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  \begin{rSubsection}{Autonomous Quadcopter}{September 2017 - Present}{Rowan
+      RAS, Software Lead}{}
+  \item Fully autonomous drone capable of navigating to waypoints, dropping a
+    payload, and detecting targets using image recognition.
+  \item Integrates a fight controller, SOC image processing, navigation sensors,
+    a custom power regulation PCB, and a custom designed aluminum frame.
+  \end{rSubsection}
 
-\begin{rSubsection}{Profhacks Website}{September 2017 - Present}{Rowan IEEE, Project Lead}{}
-\item Nodejs-based website for Rowan IEEE's annual Hackathon.
-\end{rSubsection}
+  %------------------------------------------------
 
-%------------------------------------------------
+  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Development Engineering Center Junior Clinic}{}
+  \item A custom, heated tensile stretching apparatus for a client researching the strength of electrospun nanofibers.
+  \item Consulted with a client to create a project scope, work breakdown
+    structure, electrical design, and user interface for the electrical portion
+    for their product.
+  \end{rSubsection}
 
-%\begin{rSubsection}{Rowan IEEE Website}{September 2017 - Present}{Rowan IEEE}{}
-%\item Apache-based website for Rowan IEEE.
-%\end{rSubsection}
-%
-%------------------------------------------------
+  %------------------------------------------------
 
-%\begin{rSubsection}{8-bit Discrete Processor}{June 2017 - Present}{Rowan RAS, Project Lead}{}
-%\item An 8-bit processor constructed using only discrete IC logic gates.
-%\end{rSubsection}
+  \begin{rSubsection}{Augmented Reality Using Structured Light (ARSL)}{September
+      2018 - December 2018}{ARSL Junior Clinic}{}
+  \item A novel image processing method for creating an AR environment using projected light and a camera.
+  \item Developed MATLAB, C++, and Android proof of concept applications using the
+    ARSL method.
+  \end{rSubsection}
 
-%------------------------------------------------
+  %------------------------------------------------
 
-%\begin{rSubsection}{Android Things Facial Recognition}{November 2017 - December 2017}{Google Hackathon}{}
-%\item Android IOT device that uses Google tensor flow to perform facial recognition to differentiate between users.
-%\end{rSubsection}
+  \begin{rSubsection}{Lab Log Tool}{May 2018 - September 2018}{Harris Cooperation, Project Lead}{}
+  \item Developed a web application used by FAA employees to record lab logs, schedule lab times, and generate metrics.
+  \item Back-end: Linux server running a Node.js web server, a Postfix mail server, and MySQL database.
+  \end{rSubsection}
 
-%------------------------------------------------
+  %------------------------------------------------
 
-%\begin{rSubsection}{Smart Mirror}{December 2016 - February 2017}{Sophomore Clinic Project}{}
-%\item Raspberry Pi IOT mirror with facial recognition that displays time, weather, and news through a two-way mirror.
-%\end{rSubsection}
+  %\begin{rSubsection}{Rowan IEEE Website}{September 2017 - Present}{Rowan IEEE, Project Lead}{}
+  %\item Node.js-based website for Rowan IEEE.
+  %\end{rSubsection}
+  %
+  %------------------------------------------------
+
+  %\begin{rSubsection}{8-bit Discrete Processor}{June 2017 - Present}{Rowan RAS, Project Lead}{}
+  %\item An 8-bit processor constructed using only discrete IC logic gates.
+  %\end{rSubsection}
+
+  %------------------------------------------------
+
+  %\begin{rSubsection}{Android Things Facial Recognition}{November 2017 - December 2017}{Google Hackathon}{}
+  %\item Android IOT device that uses Google tensor flow to perform facial recognition to differentiate between users.
+  %\end{rSubsection}
+
+  %------------------------------------------------
+
+  %\begin{rSubsection}{Smart Mirror}{December 2016 - February 2017}{Sophomore Clinic Project}{}
+  %\item Raspberry Pi IOT mirror with facial recognition that displays time, weather, and news through a two-way mirror.
+  %\end{rSubsection}
 
 
-%------------------------------------------------
+  %------------------------------------------------
 
-\begin{rSubsection}{EEG Controller}{February 2017 - May 2017}{Sophomore Clinic Project}{}
-\item Smart phone app that reads brain wave data from a custom wearable EGG.
-\end{rSubsection}
+  %\begin{rSubsection}{EEG Controller}{February 2017 - May 2017}{Sophomore Clinic Project}{}
+  %\item Smart phone app that reads brain wave data from a custom wearable EGG.
+  %\end{rSubsection}
 
 \end{rSection}
 
@@ -150,20 +185,19 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{WORK EXPERIENCE / INTERNSHIPS} \itemsep -3pt
-{Systems Engineering Intern, Innovative Defense Technologies (IDT)} \hfill May 2019 - Present\\
-{ECE Resource Center Technologist, Rowan Apprentice Engineering Team (A-Team)} \hfill January 2018 - Present\\
-{Datacom Intern, Harris Cooperation} \hfill May 2018 - September 2018\\
-{Chemical Engineering Lab Assistant, Rowan University} \hfill February 2017 - September 2017\\
-{Data Entry and QA Intern, Siegfried USA, LLC} \hfill June 2016 - September 2016
-{VR Intern, Virtual Reality Center, Rowan University} \hfill May 2016 - August 2016
+  \textbf{Resource Center Student Technologist, Rowan Apprentice Engineering Team (A-Team)} \hfill January 2018 - Present\\
+  \textbf{Systems Engineering Intern, Innovative Defense Technologies (IDT)} \hfill May 2019 - August 2019\\
+  \textbf{Datacom Intern, Harris Cooperation} \hfill May 2018 - September 2018\\
+  \textbf{Chemical Engineering Lab Assistant, Rowan University} \hfill February 2017 - September 2017\\
+  \textbf{Data Entry and QA Intern, Siegfried USA, LLC} \hfill June 2016 - September 2016\\
+  \textbf{VR Intern, Virtual Reality Center, Rowan University} \hfill May 2016 - August 2016
 \end{rSection}
 
 \begin{rSection}{Professional Societies/Awards} \itemsep -3pt
-{\textbf{Rowan University IEEE Student Branch (Rowan IEEE)}, Service Chair,
-  Webmaster, Member of the Month}\\
-{\textbf{Robotics and Automation Society Student Branch (Rowan RAS)}, Vice
-  President, Project Coordinator}\\
-{\textbf{Engineers Without Borders Student Branch}, Web Master}\\
+  {\textbf{Rowan University IEEE Student Branch (Rowan IEEE)}, Service Chair,
+    Webmaster, Student Member of the Month}\\
+  {\textbf{Robotics and Automation Society Student Branch (Rowan RAS)}, Vice President, Project Coordinator Chair}\\
+  {\textbf{Engineers Without Borders Student Branch}, Webmaster}
 \end{rSection}
 
 \end{document}
