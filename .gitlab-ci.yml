@@ -1,0 +1,13 @@
+image: rust:1.40
+
+before_script:
+  - cargo install tectonic
+  cache:
+    - .cargo
+
+build:
+  - mkdir output
+  - tectonic --outidr output cv.tex
+  - tectonic --outidr output cover_letter.tex
+  artifacts:
+    - output
