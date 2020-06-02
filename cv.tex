@@ -6,30 +6,25 @@
 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 
-%\newcommand\gitlablogo{\href{http://gitlab.com/JOHNeMac36}{\includegraphics[height=9pt]{./img/gitlab.png}}\ }
-%\newcommand\githublogo{\href{http://github.com/JOHNeMac36}{\raisebox{0pt}{\includegraphics[height=9pt]{./img/github.png}}\ }}
-%\newcommand\linkedinlogo{\href{http://linkedin.com/in/john-mcavoy-8b888b183}{\raisebox{0pt}{\includegraphics[height=9pt]{./img/linkedin.png}}\ }}
+\name{John McAvoy}
 
-\name{John E. McAvoy}
-
-\address{208 Abbey Lane, Logan Township, NJ 08085 \\ +18563572550 \\ johnemac36@protonmail.com}
+\address{208 Abbey Lane, Logan Township, NJ 08085 \\ +18563572550 \\
+\href{mailto:j-mcavoy@protonmail.com}{j-mcavoy@protonmail.com} \\
+\href{http://j-mcavoy.gitlab.io}{j-mcavoy.gitlab.io}}
 
 \address{
-  %  \githublogo \href{http://github.com/JOHNeMac36}{github.com/JOHNeMac36} \\
-  %  \gitlablogo \href{http://gitlab.com/JOHNeMac36}{gitlab.com/JOHNeMac36} \\
   \href{http://linkedin.com/in/john-mcavoy-8b888b183}{linkedin.com/in/john-mcavoy-8b888b183} \\
-  \href{http://github.com/JOHNeMac36}{github.com/JOHNeMac36} \\
-  \href{http://gitlab.com/JOHNeMac36}{gitlab.com/JOHNeMac36}
+  \href{http://github.com/j-mcavoy}{github.com/j-mcavoy} \\
+  \href{http://gitlab.com/j-mcavoy}{gitlab.com/j-mcavoy}
 }
-
 \begin{document}
 
 \begin{rSection}{Education}
 
   {\bf Bachelor of Science, Electrical and Computer Engineering} \hfill
-  {anticipated May 2020}
+  {September 2015 - May 2020}
   \\
-  Rowan University, Glassboro, NJ,  GPA:  3.626/4.000, Dean's List, Rowan Scholars Program
+  Rowan University, Glassboro, NJ,  GPA:  3.658/4.000, Cum Laude, Rowan Scholars Program
 
 \end{rSection}
 
@@ -41,6 +36,7 @@
 
   \begin{tabular}{ @{} >{\bfseries}l @{\hspace{0ex}} l }
     &
+    %Altium
     %Apache $\vert$
     Bash $\vert$
     C $\vert$
@@ -48,24 +44,30 @@
     C\# $\vert$
     Docker $\vert$
     Elm $\vert$
-    HTML $\vert$
+    %HTML $\vert$
     Java $\vert$
     JavaScript $\vert$
     MATLAB $\vert$
     Node.js $\vert$
     PHP $\vert$
     Python $\vert$
-    %Reactjs $\vert$
+    %React $\vert$
     Rust $\vert$
+    %Solidworks $\vert$
     SQL $\vert$
-    Swift
-    %Verilog
+    Swift $\vert$
+    Verilog
+
     \\
 
     %           Interests&
     &
-    Software Engineering, Product Engineering, Linux Development, Web Development, and Embedded
-    Systems Engineering
+    Software Engineering,
+    Linux Development,
+    Full-stack Development,
+    Embedded Systems,
+    PCB Design,
+    Product Engineering
     \\
 
   \end{tabular}
@@ -78,14 +80,24 @@
 
 \begin{rSection}{TECHNICAL PROJECTS}
 
+  \begin{rSubsection}{Clean Room Environmental Chamber}{September 2019 - May
+    2020}{Product Development Engineering Senior Clinic}{}
+  \item A novel environmental chamber for the Rowan ECE clean room for storing
+    solder paste and FR1 boards.
+  \item Consulted with a client to create a project scope, WBS, requirements and
+    specifications, high-level and low-level design.
+  \item Electrical design consists of two ATmega644PA MCUs, Peltier element, and
+    solenoid-controlled pneumatic system.
+  \end{rSubsection}
+
   %------------------------------------------------
 
-  \begin{rSubsection}{A-Team Server}{January 2018 - Present}{A-Team, Project Co-Lead}{}
-  \item Linux server running a Rust web server, an
+  \begin{rSubsection}{A-Team Server}{January 2018 - May 2020}{A-Team, Server
+    Administer / Full-Stack Developer}{}
+  \item Linux server running a Rust back end, an
     Elm front end, and MySQL database in separate Docker containers.
   \item Hosts web applications for the Rowan Engineering department to track equipment
-    loans, host safety tests, and manage chemical inventories.
-  \item Co-lead full-stack web development team and administered server.
+    loans, manage safety tests, and manage chemical inventories.
   \end{rSubsection}
 
   %------------------------------------------------
@@ -99,7 +111,7 @@
 
   %------------------------------------------------
 
-  \begin{rSubsection}{Micromouse}{September 2018 - Present}{Rowan RAS}{}
+  \begin{rSubsection}{Micromouse}{September 2018 - May 2020}{Rowan RAS}{}
   \item Maze solving robot for IEEE Micromouse competition. Won first place at
     IEEE Region 2 Student Activity Conference 2019.
   \item Consisted of a custom PCB, STM32F405 microcontroller, time of flight lidar
@@ -108,33 +120,33 @@
 
   %------------------------------------------------
 
-  \begin{rSubsection}{ProfHacks Website}{September 2018 - Present}{Rowan IEEE, Project Lead}{}
-  \item Node.js-based website, designed from scratch, for Rowan IEEE's annual Hackathon.
+  \begin{rSubsection}{ProfHacks Website}{September 2018 - May 2020}{Rowan IEEE, Project Lead}{}
+  \item Node.js-based website for Rowan IEEE's annual 24-hour Hackathon.
   \end{rSubsection}
 
   %------------------------------------------------
 
-  \begin{rSubsection}{Autonomous Quadcopter}{September 2017 - Present}{Rowan
-      RAS, Software Lead}{}
+  \begin{rSubsection}{Autonomous Quadcopter}{September 2017 - December 2019}{Rowan
+    RAS}{}
   \item Fully autonomous drone capable of navigating to waypoints, dropping a
-    payload, and detecting targets using image recognition.
+    payload, and detecting targets with image recognition.
   \item Integrates a fight controller, SOC image processing, navigation sensors,
-    a custom power regulation PCB, and a custom designed aluminum frame.
+    a custom PCB, and a custom designed and manufactured aluminum frame. Capable
+    of 1 hour of continuous flight.
   \end{rSubsection}
 
   %------------------------------------------------
 
-  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Development Engineering Center Junior Clinic}{}
+  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Development Engineering Junior Clinic}{}
   \item A custom, heated tensile stretching apparatus for a client researching the strength of electrospun nanofibers.
-  \item Consulted with a client to create a project scope, work breakdown
-    structure, electrical design, and user interface for the electrical portion
-    for their product.
+  \item Consulted with a client to create a project scope, WBS, electrical
+    design, and web-based user interface.
   \end{rSubsection}
 
   %------------------------------------------------
 
   \begin{rSubsection}{Augmented Reality Using Structured Light (ARSL)}{September
-      2018 - December 2018}{ARSL Junior Clinic}{}
+    2018 - December 2018}{ARSL Junior Clinic}{}
   \item A novel image processing method for creating an AR environment using projected light and a camera.
   \item Developed MATLAB, C++, and Android proof of concept applications using the
     ARSL method.
@@ -185,17 +197,17 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{WORK EXPERIENCE / INTERNSHIPS} \itemsep -3pt
-  \textbf{Resource Center Student Technologist, Rowan Apprentice Engineering Team (A-Team)} \hfill January 2018 - Present\\
+  \textbf{ECE Consultant, Rowan Apprentice Engineering Team (A-Team)} \hfill January 2018 - May 2020\\
   \textbf{Systems Engineering Intern, Innovative Defense Technologies (IDT)} \hfill May 2019 - August 2019\\
   \textbf{Datacom Intern, Harris Cooperation} \hfill May 2018 - September 2018\\
   \textbf{Chemical Engineering Lab Assistant, Rowan University} \hfill February 2017 - September 2017\\
   \textbf{Data Entry and QA Intern, Siegfried USA, LLC} \hfill June 2016 - September 2016\\
-  \textbf{VR Intern, Virtual Reality Center, Rowan University} \hfill May 2016 - August 2016
+  \textbf{VR Development Intern, Virtual Reality Center, Rowan University} \hfill May 2016 - August 2016
 \end{rSection}
 
 \begin{rSection}{Professional Societies/Awards} \itemsep -3pt
   {\textbf{Rowan University IEEE Student Branch (Rowan IEEE)}, Service Chair,
-    Webmaster, Student Member of the Month}\\
+  Webmaster, Student Member of the Month}\\
   {\textbf{Robotics and Automation Society Student Branch (Rowan RAS)}, Vice President, Project Coordinator Chair}\\
   {\textbf{Engineers Without Borders Student Branch}, Webmaster}
 \end{rSection}
