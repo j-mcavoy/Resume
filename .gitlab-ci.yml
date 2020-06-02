@@ -1,16 +1,7 @@
-image: rust:1.40
+image: dxjoke/tectonic-docker
 
 stages:
-    - install_dependencies
     - build
-
-install_dependencies:
-  stage: install_dependencies
-  script:
-    cargo install tectonic
-  cache:
-    paths:
-      - .cargo
 
 build:
   stage: build
