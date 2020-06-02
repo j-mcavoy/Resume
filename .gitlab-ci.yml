@@ -7,8 +7,8 @@ build:
   stage: build
   script:
     - mkdir output
-    - tectonic --outidr output cv.tex
-    - tectonic --outidr output cover_letter.tex
+    - tectonic --outdir output cv.tex
+    - tectonic --outdir output cover_letter.tex
   artifacts:
     paths:
       - output
