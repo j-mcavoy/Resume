@@ -1,13 +1,23 @@
 image: rust:1.40
 
-before_script:
-  - cargo install tectonic
+stages:
+    - install_dependencies
+    - build
+
+install_dependencies:
+  stage: install_dependencies
+  script:
+    cargo in stall tectonic
   cache:
-    - .cargo
+    paths:
+      - .cargo
 
 build:
-  - mkdir output
-  - tectonic --outidr output cv.tex
-  - tectonic --outidr output cover_letter.tex
+  stage: build
+  script:
+    - mkdir output
+    - tectonic --outidr output cv.tex
+    - tectonic --outidr output cover_letter.tex
   artifacts:
-    - output
+    paths:
+      - output
