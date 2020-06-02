@@ -7,7 +7,7 @@ stages:
 install_dependencies:
   stage: install_dependencies
   script:
-    cargo in stall tectonic
+    cargo install tectonic
   cache:
     paths:
       - .cargo
