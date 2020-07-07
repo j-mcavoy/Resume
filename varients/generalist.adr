@@ -1,0 +1,105 @@
+\def\skills{
+%Altium
+%Apache $\vert$
+Bash $\vert$
+C $\vert$
+C++ $\vert$
+C\# $\vert$
+Docker $\vert$
+Elm $\vert$
+%HTML $\vert$
+Java $\vert$
+JavaScript $\vert$
+MATLAB $\vert$
+Node.js $\vert$
+PHP $\vert$
+Python $\vert$
+%React $\vert$
+Rust $\vert$
+%Solidworks $\vert$
+SQL $\vert$
+Swift $\vert$
+Verilog
+
+\\
+
+Software Engineering,
+Linux Development,
+Full-stack Development,
+Embedded Systems,
+PCB Design,
+Product Engineering
+}
+
+\def\projects{
+  \begin{rSubsection}{Clean Room Environmental Chamber}{September 2019 - May
+    2020}{Product Development Engineering Senior Clinic}{}
+  \item A novel environmental chamber for the Rowan ECE clean room for storing
+    solder paste and FR1 boards.
+  \item Consulted with a client to create a project scope, WBS, requirements and
+    specifications, high-level and low-level design.
+  \item Electrical design consists of two ATmega644PA MCUs, Peltier element, and
+    solenoid-controlled pneumatic system.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{A-Team Server}{January 2018 - May 2020}{A-Team, Server
+    Administer / Full-Stack Developer}{}
+  \item Linux server running a Rust back end, an
+    Elm front end, and MySQL database in separate Docker containers.
+  \item Hosts web applications for the Rowan Engineering department to track equipment
+    loans, manage safety tests, and manage chemical inventories.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{Micromouse}{September 2018 - May 2020}{Rowan RAS}{}
+  \item Maze solving robot for IEEE Micromouse competition. Won first place at
+    IEEE Region 2 Student Activity Conference 2019.
+  \item Consisted of a custom PCB, STM32F405 microcontroller, time of flight lidar
+    distance sensors, 3D printed chassis, and embedded programming done in Rust.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{ProfHacks Website}{September 2018 - May 2020}{Rowan IEEE, Project Lead}{}
+  \item Node.js-based website for Rowan IEEE's annual 24-hour Hackathon.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{Autonomous Quadcopter}{September 2017 - December 2019}{Rowan
+    RAS}{}
+  \item Fully autonomous drone capable of navigating to waypoints, dropping a
+    payload, and detecting targets with image recognition.
+  \item Integrates a fight controller, SOC image processing, navigation sensors,
+    a custom PCB, and a custom designed and manufactured aluminum frame. Capable
+    of 1 hour of continuous flight.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Development Engineering Junior Clinic}{}
+  \item A custom, heated tensile stretching apparatus for a client researching the strength of electrospun nanofibers.
+  \item Consulted with a client to create a project scope, WBS, electrical
+    design, and web-based user interface.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{Augmented Reality Using Structured Light (ARSL)}{September
+    2018 - December 2018}{ARSL Junior Clinic}{}
+  \item A novel image processing method for creating an AR environment using projected light and a camera.
+  \item Developed MATLAB, C++, and Android proof of concept applications using the
+    ARSL method.
+  \end{rSubsection}
+
+  %------------------------------------------------
+
+  \begin{rSubsection}{Lab Log Tool}{May 2018 - September 2018}{Harris Corporation, Project Lead}{}
+  \item Developed a web application used by FAA employees to record lab logs, schedule lab times, and generate metrics.
+  \item Back-end: Linux server running a Node.js web server, a Postfix mail server, and MySQL database.
+  \end{rSubsection}
+
+}

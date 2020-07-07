@@ -1,5 +1,1 @@
-*
-!*.tex
-!*.cls
-!.gitignore
-!.gitlab-ci.yml
+output
