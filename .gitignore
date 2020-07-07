@@ -1,6 +1,5 @@
 *
-!cv.tex
-!resume.cls
-!cover_letter.tex
+!*.tex
+!*.cls
 !.gitignore
 !.gitlab-ci.yml
