@@ -1,8 +1,12 @@
 #!/bin/bash
 
 main() {
-
-    document_types=(resume cover_letter references)
+    if [ $# -eq 0 ]
+    then
+        document_types=(resume cover_letter references)
+    else
+        document_types=($1, $2, $3)
+    fi
 
     # compile all LaTeX variants for each document type files
     for varient in ./varients/*.adr; do
@@ -31,8 +35,8 @@ compile_document() {
     jobname="$2"
     outdir="$3"
 
-    echo pdflatex --output-dir $outdir -jobname=$jobname resume.tex
-    pdflatex --output-dir $outdir -jobname=$jobname resume.tex
+    echo pdflatex -interaction=nonstopmode --output-dir $outdir -jobname=$jobname "$document_type".tex
+    pdflatex -interaction=nonstopmode --output-dir $outdir -jobname=$jobname "$document_type".tex
 }
 
 rename_document() {
