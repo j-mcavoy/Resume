@@ -1,4 +1,4 @@
-image: dxjoke/tectonic-docker
+image: aergus/latex:latest
 
 stages:
     - build
@@ -6,9 +6,7 @@ stages:
 build:
   stage: build
   script:
-    - mkdir output
-    - tectonic --outdir output cv.tex
-    - tectonic --outdir output cover_letter.tex
+    - ./build.sh
   artifacts:
     paths:
       - output
