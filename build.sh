@@ -10,7 +10,7 @@ main() {
         jobname=$(basename $varient .adr)
         echo jobname # log jobname
 
-        for document_type in $document_types; do
+        for document_type in "${document_types[@]}"; do
             echo $document_type # log document_type
 
             # create output directories if not already created
