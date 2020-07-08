@@ -64,8 +64,8 @@ document_to_txt() {
     jobname="$2"
     outdir="$3"
 
-    echo pdftotext -layout $outdir/$jobname/$document_type.pdf
-    pdftotext -layout $outdir/$jobname/$document_type.pdf
+    echo pdftotext -layout $outdir/$document_type.pdf
+    pdftotext -layout $outdir/$document_type.pdf
 
 }
 
