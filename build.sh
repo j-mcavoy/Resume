@@ -21,7 +21,7 @@ compile_selected_documents() {
     for varient in ./varients/*.adr; do
         # remove .adr extension
         jobname=$(basename $varient .adr)
-        echo jobname # log jobname
+        echo $jobname # log jobname
 
         for document_type in "${document_types[@]}"; do
             echo $document_type # log document_type
