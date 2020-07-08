@@ -1,16 +1,21 @@
 #!/bin/bash
 
 main() {
-    if [ $1="clean" ]; then
+    if [ "$1" == "clean" ]; then
+        echo clean
         clean
-    elif [ $# -eq 0 ]; then # no args
-        document_types=(resume cover_letter references)
     else
-        document_types=($1, $2, $3)
+        if [ $# -eq 0 ]; then # no args
+            document_types=(resume cover_letter references)
+        else
+            document_types=($1 $2 $3)
+        fi
+        echo $document_types
+        compile_selected_documents $document_types
     fi
 }
 
-compile_selected_docuements() {
+compile_selected_documents() {
     document_types=$1
     # compile all LaTeX variants for each document type files
     for varient in ./varients/*.adr; do
@@ -30,6 +35,8 @@ compile_selected_docuements() {
             compile_document $document_type $jobname $outdir
             # renames output pdf for upload
             rename_document $document_type $jobname $outdir
+            # converts pdf to plain text
+            document_to_txt $document_type $jobname $outdir
         done
     done
 }
@@ -43,16 +50,6 @@ compile_document() {
     pdflatex -interaction=nonstopmode --output-dir $outdir -jobname=$jobname "$document_type".tex
 }
 
-document_to_txt() {
-    document_type="$1"
-    jobname="$2"
-    outdir="$3"
-
-    echo pdftotext -layout $outdir/$jobname_$document_type.pdf
-    pdftotext -layout $outdir/$jobname_$document_type.pdf
-
-}
-
 rename_document() {
     document_type="$1"
     jobname="$2"
@@ -62,8 +59,18 @@ rename_document() {
     mv ${outdir}/{${jobname}.pdf,$document_type.pdf}
 }
 
+document_to_txt() {
+    document_type="$1"
+    jobname="$2"
+    outdir="$3"
+
+    echo pdftotext -layout $outdir/$jobname/$document_type.pdf
+    pdftotext -layout $outdir/$jobname/$document_type.pdf
+
+}
+
 clean() {
     rm -rf output/*
 }
 
-main
+main "$@"
