@@ -1,24 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plain Cover Letter
-% LaTeX Template
-% Version 1.0 (28/5/13)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Rensselaer Polytechnic Institute
-% http://www.rpi.edu/dept/arc/training/latex/resumes/
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass[11pt]{letter} % Default font size of the document, change to 10pt to fit more text
 
 \usepackage{newcent} % Default font is the New Century Schoolbook PostScript font
@@ -32,6 +11,7 @@
 
 \let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
 
+\input{varients/\jobname.adr}
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -48,9 +28,9 @@ San Francisco, CA}
 %----------------------------------------------------------------------------------------
 
 \begin{center}
-\large\bf John McAvoy \\ % Your name
+John McAvoy \\ % Your name
 %\vspace{20pt} \hrule height 1pt % If you would like a horizontal line separating the name from the address, uncomment the line to the left of this text
-208 Abbey Lane \\ Logan Township, NJ 80805 \\ (856) 241-0661 % Your address and phone number
+208 Abbey Lane \\ Logan Township, NJ 80805 \\ (856) 357-2550 % Your address and phone number
 \end{center}
 \vfill
 
@@ -66,7 +46,7 @@ San Francisco, CA}
 %PARAGRAPH ONE: State the reason for the letter, name the position or type of work you are applying for and identify the source from which you learned of the opening (i.e. career development center, newspaper, employment service, personal contact).
 
 I am applying for this full-time software engineering position with Astranis. I
-found this job listing on the company's LinkedIn page.
+found this job listing on the company's LinkedIn page.\par
 
 %PARAGRAPH TWO: Indicate why you are interested in the position, the company, its products, services - above all, stress what you can do for the employer. If you are a recent graduate, explain how your academic background makes you a qualified candidate for the position. If you have practical work experience, point out specific achievements or unique qualifications. Try not to repeat the same information the reader will find in the resume. Refer the reader to the enclosed resume or application which summarizes your qualifications, training, and experiences. The purpose of this section is to strengthen your resume by providing details which bring your experiences to life.
 I want to work at {\company} because this company's values
@@ -75,11 +55,10 @@ access is a great cause and I would like to be a part of it. I also believe
 that this company's approach to making lost-cost, rapidly manufacturable
 satellites is a very promising endeavour and will continue to be successful
 at achieving its goal to produce affordable, modern satellites for the world.
-
 Based on this job description and requirements, I believe that I am a perfect
-fit for this position. 
+fit for this position.
 
-\lifestory
+{\lifestory}
 
 %PARAGRAPH THREE: Request a personal interview and indicate your flexibility as to the time and place. Repeat your phone number in the letter and offer assistance to help in a speedy response. For example, state that you will be in the city where the company is located on a certain date and would like to set up an interview. Alternatively, state that you will call on a certain date to set up an interview. End the letter by thanking the employer for taking time to consider your credentials.
 I am currently living in New Jersey and looking to relocate for this position. I
@@ -91,7 +70,7 @@ and well during this pandemic.
 \closing{Sincerely,}
 
 
-\encl{Curriculum vitae, employment form} % List your enclosed documents here, comment this out to get rid of the "encl:"
+\encl{Resume, references} % List your enclosed documents here, comment this out to get rid of the "encl:"
 
 %----------------------------------------------------------------------------------------
 

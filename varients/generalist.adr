@@ -1,41 +1,53 @@
 \def\skills{
-  Languages:
-  Bash $\vert$
-  C $\vert$
-  C++ $\vert$
-  C\# $\vert$
-  Docker $\vert$
-  Elm $\vert$
-  Java $\vert$
-  JavaScript $\vert$
-  MATLAB $\vert$
-  Node.js $\vert$
-  PHP $\vert$
-  Python $\vert$
-  React $\vert$
-  Rust $\vert$
-  Solidworks $\vert$
-  SQL $\vert$
+  \textbf{Languages:}
+  Bash,
+  C,
+  C++,
+  C\#,
+  CSS,
+  HTML,
+  Java,
+  JavaScript,
+  {\LaTeX},
+  MATLAB,
+  PHP,
+  Python,
+  Rust,
+  SQL,
   Verilog
-
   \\
-
-  Software Engineering,
-  Linux Development,
-  Full-stack Development,
-  Embedded Systems,
-  PCB Design,
-  Product Engineering
+  \textbf{Web Frameworks:}
+  Angular,
+  Backbone,
+  Express.js,
+  Elm,
+  Flask,
+  React,
+  Vue.js
+  \\
+  \textbf{Dev Tools:}
+  Ansible,
+  Docker,
+  Kubernetes,
+  Git,
+  GitLab CI/CD,
+  Linux,
+  Yocto
+  \hfill
+  \textbf{CAD:}
+  Altium,
+  OrCAD,
+  Solidworks
 }
 
 \def\projects{
   \begin{rSubsection}{Clean Room Environmental Chamber}{September 2019 - May
-    2020}{Product Development Engineering Senior Clinic}{}
-  \item A novel environmental chamber for the Rowan ECE clean room for storing
+    2020}{Product Engineering Senior Clinic}{}
+  \item Designed a novel environmental chamber for the Rowan ECE clean room for storing
     solder paste and FR1 boards.
   \item Consulted with a client to create a project scope, WBS, requirements and
     specifications, high-level and low-level design.
-  \item Electrical design consists of two ATmega644PA MCUs, Peltier element, and
+  \item Design consists of two ATmega644PA MCUs, Peltier element, and
     solenoid-controlled pneumatic system.
   \end{rSubsection}
 
@@ -55,7 +67,7 @@
   \item Maze solving robot for IEEE Micromouse competition. Won first place at
     IEEE Region 2 Student Activity Conference 2019.
   \item Consisted of a custom PCB, STM32F405 microcontroller, time of flight lidar
-    distance sensors, 3D printed chassis, and embedded programming done in Rust.
+    distance sensors, 3D printed chassis, and Rust embedded programming.
   \end{rSubsection}
 
   %------------------------------------------------
@@ -77,7 +89,7 @@
 
   %------------------------------------------------
 
-  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Development Engineering Junior Clinic}{}
+  \begin{rSubsection}{Nanofiber Testing Apparatus}{January 2019 - May 2019}{Product Engineering Junior Clinic}{}
   \item A custom, heated tensile stretching apparatus for a client researching the strength of electrospun nanofibers.
   \item Consulted with a client to create a project scope, WBS, electrical
     design, and web-based user interface.
@@ -110,9 +122,10 @@
   but also in doing extra-curricular projects in my professional societies, my internships, and my job working
   as a paid consultant on the Rowan Apprentice Engineering Team (A-Team). The
   A-Team is a mentorship program and company started by the ECE and ME technologists, which hires a
-  select team of 100 students as consultants to extend the skills we learn in
+  select team of students as consultants to extend the skills we learn in
   the classroom to design and build products for the university, researchers, and
   clients outside of the university.
+
   During my time working on the A-Team, I was given special access to the university's
   mechanical projects lab, PCB assembly center, ECE resource center, as well as
   advanced training on all of the equipment including the ECE instrumentation.
