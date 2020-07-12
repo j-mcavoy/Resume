@@ -36,8 +36,8 @@ compile_documents() {
 					inject_file "$company_file" COMPANY_INJECTION > "$outdir/$template.tex"
 				pdflatex -interaction=nonstopmode --output-dir "$outdir" "$outdir/$template.tex"
 				# converts pdf to plain text
-				pdftotext -layout "$outdir/$template.pdf"
-                                rm -rf "$outdir/{*.log,*.out,*.aux}"
+				pdftotext -layout -enc ASCII7 "$outdir/$template.pdf"
+                                rm -rfv "$outdir/{*.log,*.out,*.aux}"
 			done
 		done
 	done
