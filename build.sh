@@ -1,76 +1,60 @@
 #!/bin/bash
 
 main() {
-    if [ "$1" == "clean" ]; then
-        echo clean
-        clean
-    else
-        if [ $# -eq 0 ]; then # no args
-            document_types=(resume cover_letter references)
-        else
-            document_types=($1 $2 $3)
-        fi
-        echo $document_types
-        compile_selected_documents $document_types
-    fi
+	if [ "$1" == "clean" ]; then
+		echo clean
+		clean
+	else
+		compile_documents
+	fi
 }
 
-compile_selected_documents() {
-    document_types=$1
-    # compile all LaTeX variants for each document type files
-    for varient in ./varients/*.adr; do
-        # remove .adr extension
-        jobname=$(basename $varient .adr)
-        echo $jobname # log jobname
+compile_documents() {
+	WORKDIR=$(pwd)
+	TMPDIR=`mktemp -d`
+	echo "$TMPDIR"
+	cp -r roles companies classes templates "$TMPDIR"
+	cd "$TMPDIR"
+	# compile all LaTeX variants for each document type files
+	for role_file in ./roles/*.tex; do
+		role=$(basename "$role_file" .tex)
 
-        for document_type in "${document_types[@]}"; do
-            echo $document_type # log document_type
+		for company_file in ./companies/*.tex; do
+			company=$(basename "$company_file" .tex)
 
-            # create output directories if not already created
-            mkdir -p output/$jobname/$document_type
+			for template_file in ./templates/*.tex; do
+				template=$(basename "$template_file" .tex)
 
-            # set output directory for document build
-            outdir=output/$jobname/$document_type
-            # compiles variant of document
-            compile_document $document_type $jobname $outdir
-            # renames output pdf for upload
-            rename_document $document_type $jobname $outdir
-            # converts pdf to plain text
-            document_to_txt $document_type $jobname $outdir
-        done
-    done
+				echo "$role - $company - $template" # log document
+				# set output directory for document build
+				outdir=./output/$role/$company/$template
+				# create output directories if not already created
+				mkdir -p "$outdir"
+				# compiles document
+				cat "$template_file" |
+					inject_file "$role_file" ROLE_INJECTION |
+					inject_file "$company_file" COMPANY_INJECTION > "$outdir/$template.tex"
+				pdflatex -interaction=nonstopmode --output-dir "$outdir" "$outdir/$template.tex"
+				# converts pdf to plain text
+				pdftotext -layout "$outdir/$template.pdf"
+                                rm -rf "$outdir/{*.log,*.out,*.aux}"
+			done
+		done
+	done
+
+	# remove temp directory
+	cp -r "$TMPDIR/output" "$WORKDIR"
+	rm -rf "$TMPDIR"
 }
 
-compile_document() {
-    document_type="$1"
-    jobname="$2"
-    outdir="$3"
-
-    echo pdflatex -interaction=nonstopmode --output-dir $outdir -jobname=$jobname "$document_type".tex
-    pdflatex -interaction=nonstopmode --output-dir $outdir -jobname=$jobname "$document_type".tex
-}
-
-rename_document() {
-    document_type="$1"
-    jobname="$2"
-    outdir="$3"
-
-    echo mv ${outdir}/{${jobname}.pdf,$document_type.pdf}
-    mv ${outdir}/{${jobname}.pdf,$document_type.pdf}
-}
-
-document_to_txt() {
-    document_type="$1"
-    jobname="$2"
-    outdir="$3"
-
-    echo pdftotext -layout $outdir/$document_type.pdf
-    pdftotext -layout $outdir/$document_type.pdf
-
+inject_file() {
+	injection_file="$1"
+	delim="$2"
+	sed /^.*$delim/r\ $injection_file
 }
 
 clean() {
-    rm -rf output/*
+	rm -rf output
 }
 
 main "$@"
