@@ -108,6 +108,11 @@
   %\vspace{0.2em} % Some space after the list of bullet points
 }
 
+% company - job title - years
+\newcommand\work[3]{
+  {\bf #1}, {\em #2} \hfill {#3}
+}
+
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\huge} % Size of the name at the top of the document
 \def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
