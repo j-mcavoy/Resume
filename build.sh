@@ -21,14 +21,14 @@ compile_documents() {
 
     for company_dir in "companies/*/"; do
       company=$(basename $company_dir)
-      company_file="$company/company.tex"
+      company_file="companies/$company/company.tex"
       echo $company_file
       for job_file in companies/$company/jobs/*.tex; do
         job=$(basename "$job_file" .tex)
         for template_file in ./templates/*.tex; do
           template=$(basename "$template_file" .tex)
 
-          echo "$role - $company - $job - $template" # log document
+          echo "$role - $company - $job - $template \n\n" # log document
           # set output directory for document build
           outdir="./output/$company/$job/$role/$template"
           # create output directories if not already created
