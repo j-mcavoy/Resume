@@ -30,7 +30,7 @@ compile_documents() {
 
           echo "$role - $company - $job - $template" # log document
           # set output directory for document build
-          outdir="./output/$role/$company/$job/$template"
+          outdir="./output/$company/$job/$role/$template"
           # create output directories if not already created
           mkdir -p "$outdir"
           # compiles document
