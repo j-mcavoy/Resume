@@ -1,66 +1,114 @@
 #!/bin/bash
 
 main() {
-  if [ "$1" == "clean" ]; then
-    echo clean
-    clean
-  else
-    compile_documents
-  fi
+    if [ "$1" == "clean" ]; then
+        echo clean
+        clean
+    else
+        compile_documents
+    fi
 }
 
 compile_documents() {
-  WORKDIR=$(pwd)
-  TMPDIR=`mktemp -d`
-  echo "$TMPDIR"
-  cp -r roles companies classes templates projects "$TMPDIR"
-  cd "$TMPDIR"
-  # compile all LaTeX variants for each document type files
-  for role_file in ./roles/*.tex; do
-    role=$(basename "$role_file" .tex)
+    export WORKDIR=$(pwd)
+    export TMPDIR=$(mktemp -d)
+    echo "$TMPDIR"
+    cp -r roles companies classes templates "$TMPDIR"
+    cd "$TMPDIR"
 
-    for company_dir in "companies/*/"; do
-      company=$(basename $company_dir)
-      company_file="companies/$company/company.tex"
-      echo $company_file
-      for job_file in companies/$company/jobs/*.tex; do
-        job=$(basename "$job_file" .tex)
-        for template_file in ./templates/*.tex; do
-          template=$(basename "$template_file" .tex)
+    compile_references
 
-          echo "$role - $company - $job - $template \n\n" # log document
-          # set output directory for document build
-          outdir="./output/$company/$job/$role/$template"
-          # create output directories if not already created
-          mkdir -p "$outdir"
-          # compiles document
-          pwd
-          cat "$template_file" |
-            inject_file "$role_file" ROLE_INJECTION |
-            inject_file "$company_file" COMPANY_INJECTION |
-            inject_file "$job_file" JOB_INJECTION > "$outdir/$template.tex"
-          pdflatex -interaction=nonstopmode --output-dir "$outdir" "$outdir/$template.tex"
-          # converts pdf to plain text
-          pdftotext -layout -enc ASCII7 "$outdir/$template.pdf"
-          rm -rf "$outdir"/{*.log,*.out,*.aux}
+    for role_file in roles/*.tex; do
+
+        compile_resume $role_file
+
+        for company_dir in companies/*/; do
+            echo $company_dir
+            company_file="companies/$company/company.tex"
+            company=$(basename $company_dir)
+
+            for job_file in "companies/$company/jobs/*.tex"; do
+                job_dir="./output/$company/$job/cover_letter.tex"
+
+                echo $company
+                compile_cover_letter $job_file $company
+            done
         done
-      done
     done
-  done
 
-  # remove temp directory
-  cp -r "$TMPDIR/output" "$WORKDIR"
-  rm -rf "$TMPDIR"
+    tree .
+
+    for pdf in $(find output -name "*.pdf" -type f); do
+        echo $pdf
+        compile_txt "$pdf"
+    done
+
+    rm -rf "$WORKDIR/output"
+    cp -r output "$WORKDIR"
+    tree $WORKDIR/output
+    rm -rf $TMPDIR
 }
 
-    inject_file() {
-      injection_file="$1"
-      delim="$2"
-      sed /^.*$delim/r\ $injection_file
-    }
+compile_references(){
+    references_dir=output/references
+    mkdir -p "$references_dir"
+    compile_latex "$references_dir" templates/references.tex
+}
 
-  clean() {
+inject_file() {
+    injection_file="$1"
+    delim="$2"
+    sed "/^.*$delim\$/a \\\\\input\{${injection_file/_/\\_}\}"
+}
+
+compile_latex() {
+    outdir=$1
+    in=$2
+    args=$3
+    pdflatex $args -interaction=nonstopmode -output-directory="$outdir" "$in"
+}
+
+compile_resume(){
+    role_file="$1"
+    role=$(basename "$role_file" .tex)
+    resume_dir="./output/resume/$role"
+    mkdir -p "$resume_dir"
+    cat templates/resume.tex | inject_file "$role_file" ROLE_INJECTION > templates/resume.tmp.tex
+    cp templates/resume.tmp.tex" $resume_dir/resume.tex"
+    compile_latex "$resume_dir" templates/resume.tmp.tex -jobname=resume
+}
+
+compile_txt() {
+    pdf_file="$1"
+    echo compile_txt
+    pdftotext -layout -enc ASCII7 "$pdf_file"
+}
+
+compile_cover_letter() {
+    job_file="$1"
+    company="$2"
+
+    job=$(basename "$job_file" .tex)
+
+    job_dir="output/cover_letter/$company/$job/"
+    mkdir -p "$job_dir" .tmp
+    cat templates/cover_letter.tex |
+        inject_file companies/$company/company.tex COMPANY_INJECTION |
+        inject_file "$job_file" JOB_INJECTION > templates/cover_letter.tmp.tex
+
+    cp templates/cover_letter.tmp.tex "$job_dir/cover_letter.tex"
+    compile_latex "$job_dir" templates/cover_letter.tmp.tex -jobname=cover_letter
+}
+
+clean() {
     rm -rf output
-  }
+}
+
+debug() {
+    script="$@"
+    echo
+    echo '$' $script
+    echo
+}
 
 main "$@"
