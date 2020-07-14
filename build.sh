@@ -13,7 +13,7 @@ compile_documents() {
   WORKDIR=$(pwd)
   TMPDIR=`mktemp -d`
   echo "$TMPDIR"
-  cp -r roles companies classes templates "$TMPDIR"
+  cp -r roles companies classes templates projects "$TMPDIR"
   cd "$TMPDIR"
   # compile all LaTeX variants for each document type files
   for role_file in ./roles/*.tex; do
@@ -34,6 +34,7 @@ compile_documents() {
           # create output directories if not already created
           mkdir -p "$outdir"
           # compiles document
+          pwd
           cat "$template_file" |
             inject_file "$role_file" ROLE_INJECTION |
             inject_file "$company_file" COMPANY_INJECTION |
