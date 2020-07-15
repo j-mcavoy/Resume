@@ -1,18 +1,24 @@
 #!/bin/bash
-pushd ~/dox/resumes/scripts
-pwd
+pushd ~/dox/resumes/scripts > /dev/null
 SCRAPE_DIR=./scrapes
 
 CONFIG_FILE=config.json
 
 for i in "$SCRAPE_DIR/*"; do
-    echo ===START===
-    echo -e $companyIgnore
-    cmd='unique | group_by(.company) | x'
-    cat $i | jq -j "${cmd}"
+    echo company_name job_title job_summary location url easy_apply
 
+    cmd=".[] |
+        (.company | gsub(\"(,|\/)\"; \" \")), \",\",
+        (.title | gsub(\"(,|\/)\"; \" \")), \",\",
+        (.summary | gsub(\"(,\/)\"; \" \")), \",\",
+        (.location | gsub(\"(,\/)\"; \" \")), \",\",
+        (.url | gsub(\"(,)\"; \" \")), \",\",
+        .isEasyApply, \"\t\"
+        "
+
+    cat $i | jq -j "${cmd}" |tr '\n' ' ' | tr '\t' '\n'
 done
-popd
+popd > /dev/null
 
 #         map([.]) |
 #. - [\"Amazon\"] |
