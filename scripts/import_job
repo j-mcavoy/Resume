@@ -1,0 +1,25 @@
+#!/bin/bash
+pushd ~/dox/resumes/scripts
+pwd
+SCRAPE_DIR=./scrapes
+
+CONFIG_FILE=config.json
+
+for i in "$SCRAPE_DIR/*"; do
+    echo ===START===
+    echo -e $companyIgnore
+    cmd='unique | group_by(.company) | x'
+    cat $i | jq -j "${cmd}"
+
+done
+popd
+
+#         map([.]) |
+#. - [\"Amazon\"] |
+#. - [\"Apple\"] |
+#. - [\"Facebook\"] |
+#. - [\"Google\"] |
+#. - [\"Ubisoft\"] |
+#map(.[]) |
+#| map(select(contains($companyIgnore)==false)) | map(.[]) | sort | unique"
+#companyIgnore=$(cat $CONFIG_FILE | jq -rc '.companyIgnore' | sed 's/"/\\"/g')

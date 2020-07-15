@@ -1,0 +1,8 @@
+{
+    "companyIgnore": [
+        "Facebook",
+        "Google",
+        "Apple",
+        "Amazon"
+    ]
+}
