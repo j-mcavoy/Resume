@@ -8,7 +8,13 @@ replace_str(){
 
 main() {
     pushd ~/dox/resumes > /dev/null
-    scrape_file="$1"
+    scrape_file=scripts/scrapes/imported_jobs.csv
+    if [[ ! -f "$scrape_file" ]]; then
+        echo no jobs imported :\(
+        popd > /dev/null
+        exit
+    fi
+
 
     while IFS=, read company_name job_title job_summary location url easy_apply
     do

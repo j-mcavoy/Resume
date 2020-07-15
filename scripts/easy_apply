@@ -1,0 +1,31 @@
+#!/bin/bash
+
+pushd ~/dox/resumes > /dev/null
+
+file=./scripts/scrapes/imported_jobs.csv
+
+if [[ ! -f "$file" ]]; then
+    echo no imported jobs
+    popd > /dev/null
+    exit
+fi
+
+while IFS=, read company_name job_title job_summary location url easy_apply
+do
+    declare -A easy_apply_jobs
+
+    if [[ $easy_apply == 'true' ]]; then
+        easy_apply_jobs["$company_name: $job_title"]="$url"
+
+        #for k in "${!easy_apply_jobs[@]\n}"
+        #do
+        #    echo "$k" | dmenu -l 10
+        #done
+    fi
+done <"$file"
+menu=$(printf "\n%s" "${!easy_apply_jobs[@]}")
+url=${easy_apply_jobs[$(echo "$menu" | dmenu -i -l 10)]}
+echo "$url" | firefox
+
+
+popd > /dev/null

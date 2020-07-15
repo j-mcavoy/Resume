@@ -10,7 +10,7 @@ for i in "$SCRAPE_DIR/*"; do
         (.title     | gsub(\"(,|\/|#)\"; \" \")), \",\",
         (.summary   | gsub(\"(,|\/|#)\"; \" \")), \",\",
         (.location  | gsub(\"(,|\/|#)\"; \" \")), \",\",
-        (.url       | gsub(\",\"; \" \")), \",\",
+        (.url       | gsub(\",\"; \"\\\\,\")), \",\",
         .isEasyApply, \"\t\"
         "
 

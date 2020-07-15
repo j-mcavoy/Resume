@@ -49,7 +49,7 @@ compile_documents() {
     rm -rf $TMPDIR
 }
 
-compile_references(){
+compile_references() {
     references_dir=output/references
     mkdir -p "$references_dir"
     compile_latex "$references_dir" templates/references.tex
@@ -68,7 +68,7 @@ compile_latex() {
     pdflatex $args -interaction=nonstopmode -output-directory="$outdir" "$in"
 }
 
-compile_resume(){
+compile_resume() {
     role_file="$1"
     role=$(basename "$role_file" .tex)
     resume_dir="./output/resume/$role"
