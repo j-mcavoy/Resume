@@ -23,13 +23,13 @@ main() {
 
 
         #echo
-        echo "company_name : $company_name"
-        echo "company_dir  : $company_dir"
-        echo "job_title    : $job_title"
-        echo "job_summary  : $job_summary"
-        echo "location     : $location"
-        echo "url          : $url"
-        echo "easy_apply   : $easy_apply"
+        #echo "company_name : $company_name"
+        #echo "company_dir  : $company_dir"
+        #echo "job_title    : $job_title"
+        #echo "job_summary  : $job_summary"
+        #echo "location     : $location"
+        #echo "url          : $url"
+        #echo "easy_apply   : $easy_apply"
         #echo
 
         mkdir -p "companies/$company_dir/jobs"
