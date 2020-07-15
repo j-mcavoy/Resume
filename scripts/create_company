@@ -41,7 +41,7 @@ main() {
             replace_str JOBTITLE "$job_title" |
             replace_str JOBURL "$url" |
             replace_str JOB_SUMMARY "$job_summary" |
-            replace_str EASYAPPLY "$url" > companies/$company_dir/jobs/$job_file.tex
+            replace_str EASYAPPLY "$easy_apply" > companies/$company_dir/jobs/$job_file.tex
 
     done < "$scrape_file"
     popd > /dev/null
