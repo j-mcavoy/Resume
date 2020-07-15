@@ -5,8 +5,6 @@ SCRAPE_DIR=./scrapes
 CONFIG_FILE=config.json
 
 for i in "$SCRAPE_DIR/*"; do
-    echo company_name job_title job_summary location url easy_apply
-
     cmd=".[] |
         (.company   | gsub(\"(,|\/|#)\"; \" \")), \",\",
         (.title     | gsub(\"(,|\/|#)\"; \" \")), \",\",

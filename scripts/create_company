@@ -16,19 +16,20 @@ main() {
         company_dir="$(echo ${company_name} |
             sed 's/\s/_/g' |
             tr '[:upper:]' '[:lower:]')"
+
         job_file="$(echo ${job_title} |
             sed 's/\s/_/g' |
             tr '[:upper:]' '[:lower:]')"
 
 
         #echo
-        #echo "company_name : $company_name"
-        #echo "company_dir  : $company_dir"
-        #echo "job_title    : $job_title"
-        #echo "job_summary  : $job_summary"
-        #echo "location     : $location"
-        #echo "url          : $url"
-        #echo "easy_apply   : $easy_apply"
+        echo "company_name : $company_name"
+        echo "company_dir  : $company_dir"
+        echo "job_title    : $job_title"
+        echo "job_summary  : $job_summary"
+        echo "location     : $location"
+        echo "url          : $url"
+        echo "easy_apply   : $easy_apply"
         #echo
 
         mkdir -p "companies/$company_dir/jobs"
@@ -40,8 +41,7 @@ main() {
             replace_str JOBTITLE "$job_title" |
             replace_str JOBURL "$url" |
             replace_str JOB_SUMMARY "$job_summary" |
-            replace_str EASYAPPLY "$url" |
-            > "companies/$company_dir/jobs/$job_file.tex"
+            replace_str EASYAPPLY "$url" > companies/$company_dir/jobs/$job_file.tex
 
     done < "$scrape_file"
     popd > /dev/null
