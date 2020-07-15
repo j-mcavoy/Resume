@@ -3,12 +3,7 @@
 replace_str(){
     pattern="$1"
     replace="$2"
-
-
-    #echo pattern $pattern
-    #echo replace $replace
-    #awk -v pattern="$pattern" -v replace="$replace" '/$pattern/{print $replace}1'
-    sed "s#$pattern#$replace#"
+    sed 's#'"$pattern"'#'"$replace"'#'
 }
 
 main() {
@@ -21,6 +16,9 @@ main() {
         company_dir="$(echo ${company_name} |
             sed 's/\s/_/g' |
             tr '[:upper:]' '[:lower:]')"
+        job_file="$(echo ${job_title} |
+            sed 's/\s/_/g' |
+            tr '[:upper:]' '[:lower:]')"
 
 
         #echo
@@ -28,20 +26,22 @@ main() {
         #echo "company_dir  : $company_dir"
         #echo "job_title    : $job_title"
         #echo "job_summary  : $job_summary"
-        #echo "location     : $location"
+        echo "location     : $location"
         #echo "url          : $url"
         #echo "easy_apply   : $easy_apply"
         #echo
 
         mkdir -p "companies/$company_dir/jobs"
-        cat templates/company.tex | replace_str COMPANYNAME $company_name > companies/$company_dir/company.tex
+        cat templates/company.tex |
+            replace_str COMPANYNAME "$company_name" |
+            replace_str ADDRESS "$location" > companies/$company_dir/company.tex
 
         cat templates/job.tex |
-            replace_str JOBTITLE $job_title |
-            replace_str JOBURL $url |
-            replace_str JOB_SUMMARY $job_summary |
-            replace_str EASYAPPLY $url |
-            > "companies/$company_dir/jobs/$job_title.tex"
+            replace_str JOBTITLE "$job_title" |
+            replace_str JOBURL "$url" |
+            replace_str JOB_SUMMARY "$job_summary" |
+            replace_str EASYAPPLY "$url" |
+            > "companies/$company_dir/jobs/$job_file.tex"
 
     done < "$scrape_file"
     popd > /dev/null
