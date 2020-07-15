@@ -26,7 +26,7 @@ main() {
         #echo "company_dir  : $company_dir"
         #echo "job_title    : $job_title"
         #echo "job_summary  : $job_summary"
-        echo "location     : $location"
+        #echo "location     : $location"
         #echo "url          : $url"
         #echo "easy_apply   : $easy_apply"
         #echo
