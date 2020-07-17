@@ -16,33 +16,30 @@ compile_documents() {
     cp -r roles companies classes templates "$TMPDIR"
     cd "$TMPDIR"
 
-    compile_references
+    compile_references > /dev/null
 
     for role_file in roles/*.tex; do
+        compile_resume $role_file > /dev/null
+    done
 
-        compile_resume $role_file
+    for company_dir in companies/*/; do
+        company_file="companies/$company/company.tex"
+        company=$(basename $company_dir)
 
-        for company_dir in companies/*/; do
-            echo $company_dir
-            company_file="companies/$company/company.tex"
-            company=$(basename $company_dir)
+        for job_file in "companies/$company/jobs/*.tex"; do
+            job_dir="./output/$company/$job/cover_letter.tex"
 
-            for job_file in "companies/$company/jobs/*.tex"; do
-                job_dir="./output/$company/$job/cover_letter.tex"
-
-                echo $company
-                compile_cover_letter $job_file $company
-            done
+            echo $company
+            compile_cover_letter $job_file $company > /dev/null
         done
     done
 
-    tree .
 
     for pdf in $(find output -name "*.pdf" -type f); do
-        echo $pdf
         compile_txt "$pdf"
     done
 
+    tree .
     rm -rf "$WORKDIR/output"
     cp -r output "$WORKDIR"
     tree $WORKDIR/output
@@ -74,13 +71,12 @@ compile_resume() {
     resume_dir="./output/resume/$role"
     mkdir -p "$resume_dir"
     cat templates/resume.tex | inject_file "$role_file" ROLE_INJECTION > templates/resume.tmp.tex
-    cp templates/resume.tmp.tex" $resume_dir/resume.tex"
+    cp "templates/resume.tmp.tex" "$resume_dir/resume.tex"
     compile_latex "$resume_dir" templates/resume.tmp.tex -jobname=resume
 }
 
 compile_txt() {
     pdf_file="$1"
-    echo compile_txt
     pdftotext -layout -enc ASCII7 "$pdf_file"
 }
 
@@ -102,13 +98,6 @@ compile_cover_letter() {
 
 clean() {
     rm -rf output
-}
-
-debug() {
-    script="$@"
-    echo
-    echo '$' $script
-    echo
 }
 
 main "$@"
