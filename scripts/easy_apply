@@ -25,7 +25,7 @@ do
 done <"$file"
 menu=$(printf "\n%s" "${!easy_apply_jobs[@]}")
 url=${easy_apply_jobs[$(echo "$menu" | rofi -dmenu -i -l 20)]}
-if [ -z "$url" ]; then
-    echo "$url" | firefox
+if [ -n "$url" ]; then
+    echo "$url" | xargs firefox
 fi
 popd > /dev/null
