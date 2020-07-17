@@ -14,16 +14,6 @@ for i in "$SCRAPE_DIR/*"; do
         .isEasyApply, \"\t\"
         "
 
-    cat $i | jq -j "${cmd}" |tr '\n' ' ' | tr '\t' '\n'
+    cat $i | jq -j "${cmd}" |tr '\n' ' ' | tr '\t' '\n' > "$SCRAPE_DIR/imported_jobs.csv"
 done
 popd > /dev/null
-
-#         map([.]) |
-#. - [\"Amazon\"] |
-#. - [\"Apple\"] |
-#. - [\"Facebook\"] |
-#. - [\"Google\"] |
-#. - [\"Ubisoft\"] |
-#map(.[]) |
-#| map(select(contains($companyIgnore)==false)) | map(.[]) | sort | unique"
-#companyIgnore=$(cat $CONFIG_FILE | jq -rc '.companyIgnore' | sed 's/"/\\"/g')

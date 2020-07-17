@@ -14,7 +14,7 @@ while IFS=, read company_name job_title job_summary location url easy_apply
 do
     declare -A easy_apply_jobs
 
-    if [[ $easy_apply == 'true' ]]; then
+    if [[ $easy_apply == 'true' && -n $url ]]; then
         easy_apply_jobs["$company_name: $job_title"]="$url"
 
         #for k in "${!easy_apply_jobs[@]\n}"
@@ -24,8 +24,8 @@ do
     fi
 done <"$file"
 menu=$(printf "\n%s" "${!easy_apply_jobs[@]}")
-url=${easy_apply_jobs[$(echo "$menu" | dmenu -i -l 10)]}
-echo "$url" | firefox
-
-
+url=${easy_apply_jobs[$(echo "$menu" | rofi -dmenu -i -l 20)]}
+if [ -z "$url" ]; then
+    echo "$url" | firefox
+fi
 popd > /dev/null
