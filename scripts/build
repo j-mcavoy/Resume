@@ -26,14 +26,13 @@ compile_documents() {
         company_file="companies/$company/company.tex"
         company=$(basename $company_dir)
 
-        for job_file in "companies/$company/jobs/*.tex"; do
+        for job_file in companies/$company/jobs/*.tex; do
             job_dir="./output/$company/$job/cover_letter.tex"
 
             echo $company
             compile_cover_letter $job_file $company > /dev/null
         done
     done
-
 
     for pdf in $(find output -name "*.pdf" -type f); do
         compile_txt "$pdf"
@@ -43,7 +42,7 @@ compile_documents() {
     rm -rf "$WORKDIR/output"
     cp -r output "$WORKDIR"
     tree $WORKDIR/output
-    rm -rf $TMPDIR
+    #rm -rf $TMPDIR
 }
 
 compile_references() {

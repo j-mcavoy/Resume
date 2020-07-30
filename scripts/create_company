@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 replace_str(){
     pattern="$1"
@@ -16,7 +16,7 @@ main() {
     fi
 
 
-    while IFS=, read company_name job_title job_summary location url easy_apply
+    while IFS=, read company_name job_title job_summary location url easy_apply scraped_date applied
     do
 
         company_dir="$(echo ${company_name} |
@@ -27,23 +27,14 @@ main() {
             sed 's/\s/_/g' |
             tr '[:upper:]' '[:lower:]')"
 
-
-        #echo
-        #echo "company_name : $company_name"
-        #echo "company_dir  : $company_dir"
-        #echo "job_title    : $job_title"
-        #echo "job_summary  : $job_summary"
-        #echo "location     : $location"
-        #echo "url          : $url"
-        #echo "easy_apply   : $easy_apply"
-        #echo
-
         mkdir -p "companies/$company_dir/jobs"
         cat templates/company.tex |
             replace_str COMPANYNAME "$company_name" |
             replace_str ADDRESS "$location" > companies/$company_dir/company.tex
 
         cat templates/job.tex |
+            replace_str SCRAPED_DATE "$scraped_date" |
+            replace_str DID_APPLY "$applied" |
             replace_str JOBTITLE "$job_title" |
             replace_str JOBURL "$url" |
             replace_str JOB_SUMMARY "$job_summary" |
@@ -52,6 +43,5 @@ main() {
     done < "$scrape_file"
     popd > /dev/null
 }
-
 
 main "$@"

@@ -11,7 +11,9 @@ for i in "$SCRAPE_DIR/*"; do
         (.summary   | gsub(\"(,|\/|#)\"; \" \")), \",\",
         (.location  | gsub(\"(,|\/|#)\"; \" \")), \",\",
         (.url       | gsub(\",\"; \"\\\\,\")), \",\",
-        .isEasyApply, \"\t\"
+        (.isEasyApply), \",\",
+        #(.scrapeDate | fromdate), \",\",
+        (.applied), \"\t\"
         "
 
     cat $i | jq -j "${cmd}" |tr '\n' ' ' | tr '\t' '\n' > "$SCRAPE_DIR/imported_jobs.csv"

@@ -10,7 +10,7 @@ if [[ ! -f "$file" ]]; then
     exit
 fi
 
-while IFS=, read company_name job_title job_summary location url easy_apply
+while IFS=, read company_name job_title job_summary location url easy_apply applyied
 do
     declare -A easy_apply_jobs
 
