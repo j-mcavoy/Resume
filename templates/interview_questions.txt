@@ -1,0 +1,24 @@
+==============================
+What was a challenging technical bug or issue you encountered that was
+challenging to resolve? How did you root-cause the problem and what was the
+solution?
+
+One challenging technical bug that I experienced was on Rowan's Robotics and
+Automation Society team on our fully-autonomous drone project. We had spent two
+years designing a custom 30-inch quadcopter for the international
+AUVSI SUAS competition. Weeks before the competition, we had successfully
+completed hours of autonomous take off, navigating, and landing tests and
+passed all flight requirements to qualify for the competition. However, at the
+competition, our drone took off at a 15 degree angle, hovered a foot off the
+ground and attempted to stabilize itself for 10 seconds, and then flipped upside
+down and crashed hard into the pavement. Soon after our crash, we tried to diagnose what happened.
+We couldn't find anything wrong at first, everything was the same as it was the
+week before, there were no obvious electrical shorts or mechanical issues and we
+hadn't touched the flight controller's firmware. After several hours, it turned
+out that while we had calibrated the drone's gyroscope and horizontal level, we
+didn't calibrate the compass. All of our test flights were in our practice field
+in New Jersey and we hadn't needed to recalibrate the flight controller's
+compass during our test flights, but our competition was in Maryland and the
+difference in location had skewed the compass which caused the gyro to be off
+even though it reported to be calibrated. Once we calibrated the compass, the
+problem was fixed and the drone could fly level again.
