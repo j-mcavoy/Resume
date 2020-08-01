@@ -1,4 +1,4 @@
-image: aergus/latex:latest
+image: ubuntu:latest
 
 stages:
     - before_script
@@ -6,9 +6,8 @@ stages:
 
 before_script:
     stage: before_script
-  - apk update
-  - apk add bash
-  - apk add tree
+  - apt update -y
+  - apt install texlive-latex-extra
 
 build:
   stage: build
