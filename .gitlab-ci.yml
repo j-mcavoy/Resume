@@ -1,20 +1,15 @@
 image: debian:latest
 
 stages:
-    - install
     - build
 
-install:
-    stage: install
+build:
+    stage: build
     script:
         - apt-get -y update
         - apt-get -y upgrade
         - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra
-
-build:
-  stage: build
-  script:
-    - source ./scripts/build.sh
+        - source ./scripts/build.sh
   artifacts:
     paths:
-      - outpu
+      - output
