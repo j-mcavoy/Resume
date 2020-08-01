@@ -8,6 +8,7 @@ install:
     stage: install
     script:
         - apt update -y
+        - apt upgrade -y
         - apt install texlive-latex-extra
 
 build:
