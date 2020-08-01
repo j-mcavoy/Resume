@@ -6,7 +6,9 @@ stages:
 
 before_script:
     stage: before_script
-  - apk update && apk add bash
+  - apk update
+  - apk add bash
+  - apk add tree
 
 build:
   stage: build
