@@ -1,14 +1,10 @@
-image: debian:latest
-
+image: aergus/latex:latest
 stages:
     - build
 
 build:
     stage: build
     script:
-        - apt-get -y update
-        - apt-get -y upgrade
-        - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra tree bash
         - pwd
         - ls -la
         - tree .
