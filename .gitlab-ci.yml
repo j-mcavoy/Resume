@@ -1,13 +1,14 @@
 image: ubuntu:latest
 
 stages:
-    - before_script
+    - install
     - build
 
-before_script:
-    stage: before_script
-  - apt update -y
-  - apt install texlive-latex-extra
+install:
+    stage: install
+    script:
+        - apt update -y
+        - apt install texlive-latex-extra
 
 build:
   stage: build
