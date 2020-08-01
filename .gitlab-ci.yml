@@ -12,7 +12,7 @@ build:
         - pwd
         - ls -la
         - tree .
-        - source ./scripts/build.sh
+        - ./scripts/build
     artifacts:
       paths:
         - output
