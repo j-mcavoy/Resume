@@ -1,7 +1,12 @@
 image: aergus/latex:latest
 
 stages:
+    - before_script
     - build
+
+before_script:
+    stage: before_script
+  - apk update && apk add bash
 
 build:
   stage: build
