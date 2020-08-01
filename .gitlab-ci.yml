@@ -6,7 +6,7 @@ stages:
 build:
   stage: build
   script:
-    - ./build.sh
+    - ./scripts/build.sh
   artifacts:
     paths:
       - output
