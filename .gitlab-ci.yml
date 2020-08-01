@@ -9,13 +9,12 @@ install:
     script:
         - apt-get -y update
         - apt-get -y upgrade
-          apt-get -y install texlive-latex-extra
-    environment:
-        - DEBIAN_FRONTEND=noninteractive
+        - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra
+
 build:
   stage: build
   script:
     - source ./scripts/build.sh
   artifacts:
     paths:
-      - output
+      - outpu
