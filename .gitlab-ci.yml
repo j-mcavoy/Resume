@@ -10,6 +10,6 @@ build:
         - apt-get -y upgrade
         - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra
         - source ./scripts/build.sh
-  artifacts:
-    paths:
-      - output
+    artifacts:
+      paths:
+        - output
