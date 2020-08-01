@@ -15,7 +15,6 @@ install:
 build:
   stage: build
   script:
-    - tree .
     - source ./scripts/build.sh
   artifacts:
     paths:
