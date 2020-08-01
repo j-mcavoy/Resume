@@ -6,7 +6,8 @@ stages:
 build:
   stage: build
   script:
-    - ./scripts/build.sh
+    - tree .
+    - source ./scripts/build.sh
   artifacts:
     paths:
       - output
