@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: debian:latest
 
 stages:
     - install
@@ -9,7 +9,7 @@ install:
     script:
         - apt-get -y update
         - apt-get -y upgrade
-        - apt-get -y install texlive-latex-extra
+        - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra
 
 build:
   stage: build
