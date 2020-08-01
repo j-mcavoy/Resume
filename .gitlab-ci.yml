@@ -5,6 +5,9 @@ stages:
 build:
     stage: build
     script:
+        - apt -y update
+        - apt -y upgrade
+        - apt -y install tree
         - pwd
         - ls -la
         - ./scripts/build
