@@ -9,6 +9,9 @@ build:
         - apt-get -y update
         - apt-get -y upgrade
         - DEBIAN_FRONTEND=noninteractive apt-get -y install texlive-latex-extra tree bash
+        - pwd
+        - ls -la
+        - tree .
         - source ./scripts/build.sh
     artifacts:
       paths:
