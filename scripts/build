@@ -13,7 +13,7 @@ compile_documents() {
     export WORKDIR=$(pwd)
     export TMPDIR=$(mktemp -d)
     echo "$TMPDIR"
-    cp -r roles companies classes templates "$TMPDIR"
+    cp -rp roles companies classes templates "$TMPDIR"
     cd "$TMPDIR"
 
     compile_references > /dev/null
@@ -26,7 +26,7 @@ compile_documents() {
         company_file="companies/$company/company.tex"
         company=$(basename $company_dir)
 
-        for job_file in companies/$company/jobs/*.tex; do
+        for job_file in $(find companies/$company/jobs -type f -newermt "1 hour ago"); do
             job_dir="./output/$company/$job/cover_letter.tex"
 
             echo $company
@@ -38,10 +38,10 @@ compile_documents() {
         compile_txt "$pdf"
     done
 
-    tree .
+    #tree .
     rm -rf "$WORKDIR/output"
-    cp -r output "$WORKDIR"
-    tree $WORKDIR/output
+    cp -rp output "$WORKDIR"
+    #tree $WORKDIR/output
     #rm -rf $TMPDIR
 }
 
