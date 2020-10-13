@@ -1,6 +1,6 @@
 \input{templates/projects.tex}
 
-\def\skills{
+\newcommand\skills{
     \textbf{Languages:}
     Bash,
     C,
@@ -61,15 +61,19 @@
     PCB Fabrication,
     Soldering,
     Waterjet
-    }
+}
 
-    \def\projects{
-        \EnvironmentalChamber
-        \ATeamServer
-        \Micromouse
-        \ProfHacksWebsite
-        \Quadcopter
-        \Electrospinner
-        \ARSL
-        \LabLog
-    }
+\newcommand\projects{
+    \EnvironmentalChamber
+    \ATeamServer
+    \Micromouse
+    \ProfHacksWebsite
+    \Quadcopter
+    \Electrospinner
+    \ARSL
+    \LabLog
+}
+
+\newcommand\personaltag{}
+\newcommand\previousjob{consultant on the Rowan Apprentice Engineering Team (A-Team)}
+\newcommand\previousjobexperience{}

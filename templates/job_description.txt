@@ -19,14 +19,14 @@ Developed core, full-stack Java, Python, and Typescript code for IDT's Automated
 Harris Cooperation
 Datacom Intern
 Pleasantville, NJ
-May 2018 - September 2018
+May 2018 - October 2018
 
 Led development team to create a web application for FAA employees to record lab logs, schedule lab times, and view metrics.
 Administered Linux server running a Express.js web server, a Postfix mail server, and MySQL database.
 
 =====================================================
-Rowan University Chemical Engineering Department
-Lab Assistant
+Rowan University
+Chemical Engineering Lab Assistant
 Glassboro, NJ
 February 2017 - September 2017
 
@@ -45,6 +45,7 @@ Entered records into the company's database.
 Rowan University Virtual Reality Center
 VR Development Intern
 Glassboro, NJ
-May 2016 - August 20
+May 2016 - August 2016
 
-Created 3D assets and designed VR applications using Unity3D and C#.
+Created 3D assets using Blender
+Designed VR applications using C# and the Unity 3D game engine.
