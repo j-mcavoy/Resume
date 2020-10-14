@@ -1,5 +1,5 @@
 \input{templates/projects.tex}
-\def\skills{
+\newcommand\skills{
     \textbf{Languages:}
     Bash,
     C,
@@ -62,7 +62,7 @@
     Waterjet
 }
 
-\def\projects{
+\newcommand\projects{
     \EnvironmentalChamber
     \ATeamServer
     \Micromouse
@@ -73,32 +73,33 @@
     \LabLog
 }
 
-\def\intro{
-    I am a full stack developer.
-    I recently graduated with my B.S. in Electrical and Computer Engineering from Rowan University.
-    During my time at Rowan, I've had extensive experience with
-    Agile software development, Git, and developing websites using Django and React frameworks. I've
-    developed these skills in not only my courses, but also in doing
-    extra-curricular projects in my professional societies, my internships, and
-    my job working as a paid consultant for the Rowan Apprentice Engineering Team
-    (A-Team). The A-Team is a company started by the ECE and ME technologists,
+\newcommand\intro{
+    Based on this job description, I believe that I am a perfect fit for this
+    position. I am a {\personaltag}.
+    I recently graduated with my B.S. in Electrical and Computer Engineering from
+    Rowan University.
+
+    During my career, I've had extensive experience with
+    {\jobskills}. I developed these skills in not only my
+    courses, but also in my at my internships, extra-curricular projects, as Vice President of
+    Rowan's Robotics and Automation Society (Rowan RAS), and
+    at my job working as a {\previousjob}.
+}
+
+\newcommand\personaltag{hardware-software generalist with a focus in product engineering}
+\newcommand\previousjob{consultant on the Rowan Apprentice Engineering Team (A-Team)}
+
+\newcommand\previousjobdescription{
+    The A-Team is a company started by the university's ECE and ME technologists,
     which hires a select team of students as consultants to extend the skills we
     learn in the classroom to design and build products for the university,
     researchers, and clients outside of the university.
 }
-
-\def\personaltag{software generalist with a focus on full-stack development}
-\def\previousjob{consultant on the Rowan Apprentice Engineering Team (A-Team)}
-\def\previousjobexperience{
+\newcommand\previousjobexperience{
     During my time working on the A-Team, I was given special access to the university's
     mechanical projects lab, PCB assembly center, ECE resource center, as well as
     advanced training on all of the ECE instrumentation and ME machinery.  I
     also gained product development skills by consulting with clients, creating
-    WBS and scopes of work, and practising interative design process on a team of both electrical and mechanical
+    WBS and scopes of work, and practicing iterative design process on a team of both electrical and mechanical
     engineers.
-}
-\def\deeppassion{
-    I have a deep passion for learning and sharing skills with a team and I believe that the resources at
-    {\company} will give me the opportunity to apply my expertise and continue to learn
-    new skills.
 }

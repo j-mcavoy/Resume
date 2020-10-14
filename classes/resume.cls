@@ -9,6 +9,7 @@
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
+\usepackage{xifthen}% provides \isempty test
 
 \pagestyle{empty} % Suppress page numbers
 
@@ -96,7 +97,7 @@
 %----------------------------------------------------------------------------------------
 
 \newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1}, {\em #3} \hfill {#2} % Bold company name and date on the right
+ {\bf #1}, {\em #3} \hfill {\bf #2} % Bold company name and date on the right
  \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
    %\\
    %\hfill {\em #4} % Italic job title and location
@@ -109,9 +110,7 @@
 }
 
 % company - job title - years
-\newcommand\work[3]{
-  {\bf #1}, {\em #2} \hfill {#3}
-}
+\newcommand\work[3]{{\bf #1}, {\em #2} \hfill {\bf #3}}
 
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\huge} % Size of the name at the top of the document
@@ -119,3 +118,30 @@
 \def\sectionlineskip{\smallskip} % The space above the horizontal line for each section
 \def\nameskip{\bigskip} % The space after your name at the top
 \def\sectionskip{\smallskip} % The space after the heading section
+
+
+
+\newcommand\Jan{January}
+\newcommand\Feb{February}
+\newcommand\Mar{March}
+\newcommand\Apr{April}
+\newcommand\May{May}
+\newcommand\Jun{June}
+\newcommand\Jul{July}
+\newcommand\Aug{August}
+\newcommand\Sep{September}
+\newcommand\Oct{October}
+\newcommand\Nov{November}
+\newcommand\Dec{December}
+
+% DateRange
+\newcommand\DR[4]{{#1} {#2} - {#3} {#4}}
+
+% Title Company Range Item1 Item2 Item3
+\newcommand\ProjectEntry[6]{
+    \begin{rSubsection}{#1}{#3}{#2}{}
+        \ifthenelse{\isempty{#4}}{}{\item #4}
+        \ifthenelse{\isempty{#5}}{}{\item #5}
+        \ifthenelse{\isempty{#6}}{}{\item #6}
+    \end{rSubsection}
+}
