@@ -1,0 +1,5 @@
+LinkedIn: https://www.linkedin.com/in/john-mcavoy-8b888b183
+Website: https://j-mcavoy.gitlab.io/
+Portfolio: https://j-mcavoy-sites.gitlab.io/blog/
+GitLab: https://gitlab.com/j-mcavoy
+GitHub: https://github.com/j-mcavoy

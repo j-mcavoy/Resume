@@ -26,7 +26,7 @@ compile_documents() {
         company_file="companies/$company/company.tex"
         company=$(basename $company_dir)
 
-        for job_file in $(find companies/$company/jobs -type f -newermt "1 hour ago"); do
+        for job_file in $(find companies/$company/jobs -type f -newermt "10 minutes ago"); do
             job_dir="./output/$company/$job/cover_letter.tex"
 
             echo $company

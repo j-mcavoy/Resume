@@ -2,7 +2,9 @@
 
 pushd ~/dox/resumes > /dev/null
 
-file=./scripts/scrapes/imported_jobs.csv
+./scripts/sort_jobs
+
+file=./easy_apply_jobs
 
 if [[ ! -f "$file" ]]; then
     echo no imported jobs
@@ -10,22 +12,29 @@ if [[ ! -f "$file" ]]; then
     exit
 fi
 
-while IFS=, read company_name job_title job_summary location url easy_apply applyied
+while IFS="," read -r line
 do
     declare -A easy_apply_jobs
 
-    if [[ $easy_apply == 'true' && -n $url ]]; then
-        easy_apply_jobs["$company_name: $job_title"]="$url"
+    echo $line
+    job_file=$(echo $line | cut -d' ' -f1)
+    url=$(echo $line | cut -d' ' -f2)
+
+    echo $job_file
+    echo $url
+    easy_apply_jobs["$job_file"]="$url"
 
         #for k in "${!easy_apply_jobs[@]\n}"
         #do
         #    echo "$k" | dmenu -l 10
         #done
-    fi
 done <"$file"
 menu=$(printf "\n%s" "${!easy_apply_jobs[@]}")
-url=${easy_apply_jobs[$(echo "$menu" | rofi -dmenu -i -l 20)]}
+url=${easy_apply_jobs[$(echo "$menu" | rofi -selected-row 1 -dmenu -i -l 20)]}
 if [ -n "$url" ]; then
     echo "$url" | xargs firefox
+    chosen=$(grep $url $file | cut -f1)
+    echo You chose $chosen
+    sed '/Applied?: false/c\Applied?: true' -i $chosen
 fi
 popd > /dev/null

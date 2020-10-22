@@ -1,16 +1,16 @@
 =====================================================
 Rowan Apprentice Engineering Team (A-Team)
 ECE Consultant
-Glassboro, NJ
+201 Mullica Hill Road, Glassboro, NJ 08028
 January 2018 - May 2020
 
 Designed web applications and embedded devices for Rowan University's Engineering department and researchers.
 Consulted with clients to identify their requirements, create SOW, WBS, and high-level designs.
 
 =====================================================
-Innovative Defense Technologies (IDT)}
+Innovative Defense Technologies (IDT)
 Systems Engineering Intern
-Mount Laurel, NJ
+8000 Midlantic Dr, Unit 202N, Mount Laurel, NJ 08054
 May 2019 - August 2019
 
 Developed core, full-stack Java, Python, and Typescript code for IDT's Automated Test and Retest enterprise software.
@@ -18,7 +18,7 @@ Developed core, full-stack Java, Python, and Typescript code for IDT's Automated
 =====================================================
 Harris Cooperation
 Datacom Intern
-Pleasantville, NJ
+FAA William J. Hughes Technical Center, Egg Harbor City, NJ 08215
 May 2018 - October 2018
 
 Led development team to create a web application for FAA employees to record lab logs, schedule lab times, and view metrics.
@@ -27,7 +27,7 @@ Administered Linux server running a Express.js web server, a Postfix mail server
 =====================================================
 Rowan University
 Chemical Engineering Lab Assistant
-Glassboro, NJ
+201 Mullica Hill Road, Glassboro, NJ 08028
 February 2017 - September 2017
 
 Conducted experiments for Dr. Martin Haase to research the fluid dynamics of nanoparticle-stabilized emulsions.
@@ -35,7 +35,7 @@ Conducted experiments for Dr. Martin Haase to research the fluid dynamics of nan
 =====================================================
 Siegfried USA, LLC
 Data Entry and QA Intern
-Pennsville, NJ
+33 Industrial Park Road, Pennsville, NJ 08070
 June 2016 - September 2016
 
 Validated and approved daily batch logs for the QA department.
@@ -43,9 +43,9 @@ Entered records into the company's database.
 
 =====================================================
 Rowan University Virtual Reality Center
-VR Development Intern
-Glassboro, NJ
+Virtual Reality Development Intern
+107 Gilbreth Parkway, Mullica Hill, NJ 08062
 May 2016 - August 2016
 
-Created 3D assets using Blender
 Designed VR applications using C# and the Unity 3D game engine.
+Created 3D assets using Blender.

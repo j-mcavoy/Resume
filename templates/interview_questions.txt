@@ -1,3 +1,12 @@
+October 26 - November 14 between 12pm and 7pm EST
+
+
+
+==============================
+In 150 characters or fewer, tell us what makes you unique. Try to be creative and say something that will catch our eye!
+
+I've worked 3 years as a consultant, leading a team of developers to design a suite of web applications for Rowan University's Engineering Department.
+
 ==============================
 What was a challenging technical bug or issue you encountered that was
 challenging to resolve? How did you root-cause the problem and what was the

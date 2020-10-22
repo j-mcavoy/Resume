@@ -1,0 +1,43 @@
+#!/bin/bash
+
+JOB_CACHE=.job_cache
+ROLES_CACHE=.roles_cache
+MERGE_CACHE=.merge_cache
+EASY_APPLY_CACHE=.easy_apply_cache
+EASY_APPLY=easy_apply_jobs
+EASY_APPLY_URL_CACHE=.easy_apply_url_cache
+
+rm *_jobs
+
+echo $(grep -l "" companies/*/jobs/* | wc -l) Jobs
+echo $(grep -l "Applied?: true" companies/*/jobs/* | wc -l) Applied
+echo $(grep -l "Applied?: false" companies/*/jobs/* | wc -l) UnApplied
+
+grep 'Scraped Date:' $(grep -l "Applied?: false" companies/*/jobs/*) | sort -r -t' ' -k 4 > $JOB_CACHE
+
+grep -h \input{./roles/ $(cat $JOB_CACHE | cut -d'%' -f1 | cut -d':' -f1) | cut -d'/' -f3 | cut -d'}' -f1 > $ROLES_CACHE
+
+grep 'Easy Apply: true' $(cat $JOB_CACHE | cut -d'%' -f1 | cut -d':' -f1) | cut -d':' -f1 > $EASY_APPLY_CACHE
+
+paste -d' ' $JOB_CACHE $ROLES_CACHE > $MERGE_CACHE
+
+while read line; do
+    JOB="$(echo "${line}" | cut -d'%' -f1 | cut -d':' -f1)"
+    ROLE="$(echo "${line}" | rev | cut -d' ' -f1 | rev)"
+
+    rolefile="${ROLE}_jobs"
+    touch $rolefile
+    echo $JOB >> $rolefile
+
+done < $MERGE_CACHE
+
+while read line; do
+    touch $EASY_APPLY_URL_CACHE
+    grep -h 'Url: ' $line | cut -d' ' -f3 >> $EASY_APPLY_URL_CACHE
+    paste $EASY_APPLY_CACHE $EASY_APPLY_URL_CACHE > $EASY_APPLY
+
+done < $EASY_APPLY_CACHE
+
+echo $(wc -l $EASY_APPLY | cut -d' ' -f1) Easy Apply
+
+rm $JOB_CACHE $ROLES_CACHE $MERGE_CACHE $EASY_APPLY_CACHE $EASY_APPLY_URL_CACHE
